@@ -10,7 +10,7 @@ jobs:
         id: build
         working-directory: .
         run: |
-          TMUX_RELEASE_TAG=$(cat release-versions/tmux-latest.txt)
+          TMUX_RELEASE_TAG=$(cat release-version.txt)
           echo "TMUX_RELEASE_TAG=$TMUX_RELEASE_TAG" >> $GITHUB_OUTPUT
           docker build . -t tmux --build-arg TMUX_RELEASE_TAG=$TMUX_RELEASE_TAG
           docker create -ti --name tmuxcontainer tmux bash
